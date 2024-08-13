@@ -6,15 +6,15 @@
 #### Mentor: NEELA SANTHOSH KUMAR
 ## OVER VIEW OF PROJECT :
 ### PROJECT :DIGITAL LOGIC DESIGN WITH VERILOG
-### Objective:
+- ### Objective:
 Digital logic design with Verilog is a fundamental aspect of hardware design and verification in digital systems.
 Verilog is a hardware description language (HDL) used to model and simulate digital circuits.
 Here’s an overview of digital design with Verilog, including key concepts, typical components, and design and verification processes.
 - ### Key Activities
-  Verilog: A widely used HDL for modeling digital systems. It provides a way to describe the structure and behavior of electronic systems at different levels of abstraction.
-  Behavioral: Describes what the system does, using high-level constructs like if, case, and for loops.
+-  Verilog: A widely used HDL for modeling digital systems. It provides a way to describe the structure and behavior of electronic systems at different levels of abstraction.
+-   Behavioral: Describes what the system does, using high-level constructs like if, case, and for loops.
 ## Technology used
- Simulation Tools: ModelSim
+-Simulation Tools: ModelSim
  ## output wave forms
  ![and_gate (2)](https://github.com/user-attachments/assets/0b2c55bf-56bc-47c9-a9b9-85cc192b0a3d)
 ![or_gate](https://github.com/user-attachments/assets/6fe75947-801b-4057-8012-395236788e32)
