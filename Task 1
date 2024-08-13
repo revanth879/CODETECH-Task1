@@ -1,0 +1,283 @@
+# CODETECH-Task1
+/* And Gate */
+module and_gate(a,b,y);
+input a,b;
+output y;
+and(y,a,b);
+endmodule
+/*And testbench */
+and_gate uut(a,b,y);
+initial begin
+a = 0; b = 0;
+#10
+b = 0; b = 1;
+#10
+a = 1; b = 0;
+#10
+b = 1; b = 1;
+#10
+$finish();
+end               
+endmodule
+
+/* or gate */
+module or_gate (
+    input wire a,
+    input wire b,
+    output wire y
+);
+
+assign y = a | b;
+
+endmodule
+/* or testbench */
+module or_gate_tb;
+reg a;
+reg b;
+wire y;
+or_gate uut (.a(a),.b(b),.y(y));
+initial begin
+     a = 0; b = 0;
+     #10;   
+     a = 0; b = 1;
+     #10;
+     a = 1; b = 0;
+     #10;
+     a = 1; b = 1;
+     #10;
+     $finish;
+end
+endmodule
+   /*nand gate*/
+module NAND_gate (
+    input A,
+    input B,
+    output Y
+);
+    assign Y = ~(A & B);
+endmodule
+/*nand tsestbench */
+module NAND_gate_tb;
+    reg A;
+    reg B;
+    wire Y;
+
+        NAND_gate uut (
+        .A(A),
+        .B(B),
+        .Y(Y)
+    );
+    initial begin  
+        A = 0; B = 0; #10;
+        A = 0; B = 1; #10;
+        A = 1; B = 0; #10;
+        A = 1; B = 1; #10;
+        $finish;
+    end
+endmodule
+/*not gate*/
+module not_gate(
+    input wire A,    
+    output wire Y    
+);
+
+assign Y = ~A;  
+
+endmodule
+/*not gate testbench */
+module not_gate_tb;
+
+
+reg A;          
+wire Y;         
+
+not_gate uut (
+    .A(A), 
+    .Y(Y)
+);
+
+initial begin
+    
+    A = 0;
+    #10;         
+    A = 1;
+    #10;         
+end
+
+initial begin
+    
+    $monitor("Time: %0d, A = %b, Y = %b", $time, A, Y);
+end
+
+endmodule
+/*nor gate */
+module NOR_Gate (
+    input A,
+    input B,
+    output Y
+);
+assign Y = ~(A | B);
+endmodule
+/*nor testbench*/
+module tb_NOR_Gate;
+reg A;
+reg B;
+wire Y;
+NOR_Gate uut (
+    .A(A), 
+    .B(B), 
+    .Y(Y)
+);
+
+initial begin
+    A = 0; B = 0;
+    #10;
+    A = 0; B = 1;
+    #10;
+    A = 1; B = 0;
+    #10;
+    A = 1; B = 1;
+    #10;
+    $stop;
+end
+endmodule
+
+/*xor gate*/
+module xor_gate (
+    input wire a,   
+    input wire b,    
+    output wire y    
+);
+  assign y = a ^ b;
+endmodule
+/*xor testbench*/
+module tb_xor_gate;
+    reg a;
+    reg b;
+    wire y;
+    xor_gate uut (
+        .a(a), 
+        .b(b), 
+        .y(y)
+    );
+    initial begin  
+        $monitor("a = %b, b = %b, y = %b", a, b, y);
+        a = 0; b = 0;
+        #10;
+        a = 0; b = 1;
+        #10;
+        a = 1; b = 0;
+        #10;
+        a = 1; b = 1;
+        #10;
+        $finish;
+    end
+endmodule 
+/*xnor gate*/
+module xnor_gate (
+    input wire A,
+    input wire B,
+    output wire Y
+);
+    assign Y = ~(A ^ B);
+endmodule
+/*xnor tsetbench*/
+module tb_xnor_gate;
+    reg A;
+    reg B;
+    wire Y;
+    xnor_gate uut (
+        .A(A), 
+        .B(B), 
+        .Y(Y)
+    );
+    initial begin  
+        A = 0; B = 0;
+        #10; 
+        A = 0; B = 1;
+        #10;
+        A = 1; B = 0;
+        #10;
+        A = 1; B = 1;
+        #10;
+        $finish;
+    end
+    initial begin
+        $monitor("At time %0d: A = %b, B = %b, Y = %b", $time, A, B, Y);
+    end
+endmodule
+/*2-bit adder*/
+module two_bit_adder (
+    input [1:0] A,  
+    input [1:0] B,  
+    output [2:0] SUM 
+);
+    assign SUM = A + B;
+endmodule
+/*2-bit adder testbench*/
+module tb_two_bit_adder;
+    reg [1:0] A;
+    reg [1:0] B;
+    wire [2:0] SUM;
+    two_bit_adder uut (
+        .A(A),
+        .B(B),
+        .SUM(SUM)
+    );
+    initial begin
+        A = 2'b00; B = 2'b00;
+        #10;
+        A = 2'b01; B = 2'b01;
+        #10;
+        A = 2'b10; B = 2'b10;
+        #10;
+        A = 2'b11; B = 2'b11;
+        #10;
+        $finish;
+    end
+    initial begin
+        $monitor("Time = %0t | A = %b | B = %b | SUM = %b", $time, A, B, SUM);
+    end
+endmodule
+/*2*1multiplexer*/
+module multiplier2x1 (
+    input [1:0] A, 
+    input [1:0] B, 
+    output [3:0] Y  
+);
+
+assign Y = A * B;
+
+endmodule
+/*2*1 mux testbench*/
+module tb_multiplier2x1;
+reg [1:0] A;
+reg [1:0] B;
+wire [3:0] Y;
+multiplier2x1 uut (
+    .A(A),
+    .B(B),
+    .Y(Y)
+);
+initial begin
+    A = 2'b10;
+    B = 2'b10;
+    #10;
+    A = 2'b11;
+    B = 2'b01;
+    #10;
+    A = 2'b00;
+    B = 2'b01;
+    #10;
+    A = 2'b01;
+    B = 2'b01;
+    #10;
+    A = 2'b10;
+    B = 2'b11;
+    #10;
+    A = 2'b11;
+    B = 2'b11;
+    #10
+    $stop;
+end
+endmodule
